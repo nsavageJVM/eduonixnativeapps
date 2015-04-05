@@ -1,0 +1,6 @@
+#videoBasePanel
+{
+    -fx-background-image: url("vid-panel-bg.png");
+    -fx-background-size: 1280px 450px;
+    -fx-background-repeat: no-repeat;
+}
