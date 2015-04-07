@@ -10,7 +10,7 @@ public class VideoFileHandler {
     public URL getExampleMP4FilePathAsString() {
 
         URL path = null;
-        path = VideoFileHandler.class.getResource("test.mp4") ;
+        path = VideoFileHandler.class.getResource("testvid.mp4") ;
 
         return path;
     }

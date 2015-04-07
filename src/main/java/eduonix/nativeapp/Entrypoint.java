@@ -2,16 +2,16 @@ package eduonix.nativeapp;
 
 import com.sun.jna.Native;
 import com.sun.jna.NativeLibrary;
+import eduonix.nativeapp.views.VideoView;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 import uk.co.caprica.vlcj.binding.LibVlc;
 import uk.co.caprica.vlcj.runtime.RuntimeUtil;
-import uk.co.caprica.vlcj.runtime.x.LibXUtil;
 
 /**
- * Entrypoint
+ * Entrypoint for the video code
  */
 public class Entrypoint  extends Application {
 
