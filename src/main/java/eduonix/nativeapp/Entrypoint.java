@@ -2,6 +2,7 @@ package eduonix.nativeapp;
 
 import com.sun.jna.Native;
 import com.sun.jna.NativeLibrary;
+import com.sun.jna.Platform;
 import eduonix.nativeapp.views.VideoView;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -46,17 +47,16 @@ public class Entrypoint  extends Application {
         rootLayout = vidPanelView.getView();
         primaryStageJFX.setScene(new Scene(rootLayout, 1280, 500));
         primaryStageJFX.show();
-        // do this for a painless properties flow
+
     }
 
     public static void main(String[] args) {
-        String libpath = null;
-        NativeLibrary.addSearchPath(RuntimeUtil.getLibVlcLibraryName(),
-                "c:/Program Files/VideoLAN/VLC/");
+
+        NativeLibrary.addSearchPath(
+                RuntimeUtil.getLibVlcLibraryName(),
+                (Platform.is64Bit() ? "c:/Program Files/VideoLAN/VLC/" : "C:/Program Files (x86)/VideoLAN/VLC"));
+
         Native.loadLibrary(RuntimeUtil.getLibVlcLibraryName(), LibVlc.class);
-
-
-        System.out.println("testing");
         launch(args);
     }
 

@@ -28,16 +28,7 @@ public class VideoController  implements Initializable  {
 
     private CanvasVideoComponent player;
 
-
-    /**
-     *
-     */
-    private static final double FPS = 60.0;
-
-    /**
-     * Filename of the video to play.
-     */
-    private static final String VIDEO_FILE = "testvid.mp4";
+    private static final double FPS = 21.9140;
 
 
     /**
@@ -74,19 +65,15 @@ public class VideoController  implements Initializable  {
 
         fileHandler = new VideoFileHandler();
 
-        System.out.println(fileHandler.getExampleMP4FilePathAsString());
-
+        String uriString  = fileHandler.getExampleMP4FilePathAsString().getPath();
+        uriString = new StringBuilder("file://").append(uriString).toString();
+        System.out.println(uriString);
         player = new  CanvasVideoComponent();
-
-
-        // The supplied URI must conform to RFC-2396 as required by java.net.URI.
-        String uriString = new File(fileHandler.getExampleMP4FilePathAsString().getPath()).toURI().toString();
 
         player.getMediaPlayerComponent().getMediaPlayer().playMedia(uriString);
 
         videoBaseContainer.getChildren().add(player.getCanvas());
 
-        player.getMediaPlayerComponent().getMediaPlayer().setPosition(0.7f);
 
         startTimer();
 
